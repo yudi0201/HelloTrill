@@ -39,16 +39,18 @@ namespace HelloTrill
              * Define transformations on the stream(s) 
              */
             var result = streamA
-                    .Select(e => e + 1)                         // Set transformations on the stream.
-                ;                                               // In this case, Adding 1 to each payload using Select
+                    .Select(e => e+1)                         // Set transformations on the stream.
+                ;               // In this case, Adding 1 to each payload using Select
+
+            var exercise2 = streamA.Select(e => e * 3);
             
             /**
              * Print out the result
              */
-            result
+            exercise2
                 .ToStreamEventObservable()                      // Convert back to Observable (of StreamEvents)
                 .Where(e => e.IsData)                           // Only pick data events from the stream
-                .ForEach(e => { Console.WriteLine(e); })        // Print the events to the console
+                .ForEachAsync(e => { Console.WriteLine(e); })        // Print the events to the console
                 ;
         }
     }

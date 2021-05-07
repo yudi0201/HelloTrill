@@ -10,4 +10,8 @@
       <PackageReference Include="Trill" Version="2020.7.31.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="level3exercise.cs" />
+    </ItemGroup>
+
 </Project>
